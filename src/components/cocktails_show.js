@@ -24,9 +24,7 @@ function mapStateToProps(state) {
 }
 
 function findCocktail(cocktails, id) {
-  return cocktails.find(function(cocktail) {
-    return id == cocktail.id
-  })
+  return cocktails[id]
 }
 
 export default connect(mapStateToProps)(CocktailShow)
