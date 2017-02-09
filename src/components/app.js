@@ -9,9 +9,14 @@ export default (props) => {
       <div>
         < NavBar  title="Boozr" url="/" />
         <div className='container'>
-          < CocktailList />
-          < CocktailShow />
-          < CocktailCreate />
+          <div className='col-md-4'>
+            < CocktailCreate />
+            < CocktailList />
+          </div>
+          <div className='col-md-8'>
+            < CocktailShow />
+          </div>
+          
         </div>
       </div>
     )

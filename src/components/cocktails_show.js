@@ -9,7 +9,7 @@ class CocktailShow extends React.Component {
       return <div></div>
     } else {
       let cocktail = this.props.currentCocktail
-      return <div className="col-md-4"><h1>{cocktail.name}</h1>
+      return <div><h1>{cocktail.name}</h1>
       <p>{cocktail.description}</p>
       </div>
     }}

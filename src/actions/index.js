@@ -1,7 +1,8 @@
-const defaultCocktails = [{id: 1, name: 'Gin and Tonic', description: "2 shots of gin, half a glass of tonic, 3 ice cubes"}, {id: 2, name: 'Old Fashioned', description: "2 shots of bourbon, 2 dashes of bitters, few dashes of water, 1 sugar cube"}, {id: 3, name: 'Negroni', description: "2 shots of gine, 1 oz of vermouth, 1 oz of Campari"}, {id: 4, name: 'Roy Rogers', description: "a few splashes of grenadine syrup, filler up with your choice of cola drink"}];
+import axios from 'axios'
 
 export function fetchCocktails() {
-  return {type: "FETCH_COCKTAILS", payload: defaultCocktails}
+  let cocktailList = axios.get('http://localhost:3000/api/v1/cocktails').then( response => response.data)
+  return {type: "FETCH_COCKTAILS", payload: cocktailList}
 }
 
 export function selectCocktail(key) {
@@ -9,9 +10,12 @@ export function selectCocktail(key) {
 }
 
 export function addCocktail(cocktail){
+  debugger
+  let newCocktail = axios.post('http://localhost:3000/api/v1/cocktails', { name: cocktail.name, description: cocktail.description } ).then( response => response.data )
+
 	return {
 		type: 'ADD_COCKTAIL',
-		payload: cocktail
+		payload: newCocktail
 	}
 }
 
