@@ -18,7 +18,7 @@ class CocktailList extends React.Component {
         <h2>All Cocktails</h2>
         <ul className="col-md-4">
           { cocktails.map( (cocktail, index) => {
-            return <li key={cocktail.id} data-id={cocktail.id} onClick={this.handleClick.bind(this)}>{cocktail.name}</li>
+            return <li key={index} data-id={index} onClick={this.handleClick.bind(this)}>{cocktail.name}</li>
           })}
         </ul>
       </div>
