@@ -5,26 +5,26 @@ import { selectCocktail } from '../actions'
 
 class CocktailShow extends React.Component {
   render() {
-    {if (!this.props.currentCocktail) {
-      return <div></div>
-    } else {
+
       let cocktail = this.props.currentCocktail
       return <div><h1>{cocktail.name}</h1>
       <p>{cocktail.description}</p>
+      
       </div>
-    }}
+    }
   }
-}
 
 function mapStateToProps(state) {
+
+    const cocktail = state.cocktails.find(cocktail => cocktail.id == state.currentCocktail) || {}
+
+
   return {
+    // cocktail: cocktail
     cocktails: state.cocktails,
-    currentCocktail: findCocktail(state.cocktails, state.currentCocktail)
+    currentCocktail: cocktail
   }
 }
 
-function findCocktail(cocktails, id) {
-  return cocktails[id]
-}
 
 export default connect(mapStateToProps)(CocktailShow)

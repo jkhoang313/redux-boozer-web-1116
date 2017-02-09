@@ -4,6 +4,8 @@ export default function currentCocktailReducer(state="", action) {
       return action.payload
     case "HIDE_COCKTAIL":
     	return null
+    case "ADD_COCKTAIL":
+    	return action.payload.id
     default:
       return state
   }

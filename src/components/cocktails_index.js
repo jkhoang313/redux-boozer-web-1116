@@ -3,11 +3,13 @@ import { connect } from 'react-redux'
 import { fetchCocktails, selectCocktail } from '../actions'
 
 class CocktailList extends React.Component {
+
   componentDidMount() {
     this.props.fetchCocktails()
   }
 
   handleClick(event) {
+
     this.props.selectCocktail(event.target.dataset.id)
   }
 
@@ -16,15 +18,17 @@ class CocktailList extends React.Component {
     return (
       <div>
         <h2>All Cocktails</h2>
-        <ul className="">
+        <ul className="col-md-4">
           { cocktails.map( (cocktail, index) => {
-            return <li key={index} data-id={index} onClick={this.handleClick.bind(this)}>{cocktail.name}</li>
+            return <li key={cocktail.id} >
+            <a data-id={cocktail.id} onClick={this.handleClick.bind(this)}>{cocktail.name}</a></li>
           })}
         </ul>
       </div>
     )
   }
 }
+
 
 function mapStateToProps(state) {
   return {cocktails: state.cocktails}

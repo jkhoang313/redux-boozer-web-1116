@@ -10,7 +10,7 @@ export function selectCocktail(key) {
 }
 
 export function addCocktail(cocktail){
-  debugger
+
   let newCocktail = axios.post('http://localhost:3000/api/v1/cocktails', { name: cocktail.name, description: cocktail.description } ).then( response => response.data )
 
 	return {
