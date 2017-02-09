@@ -7,9 +7,24 @@ class CocktailShow extends React.Component {
   render() {
 
       let cocktail = this.props.currentCocktail
+      
       return <div><h1>{cocktail.name}</h1>
       <p>{cocktail.description}</p>
+      <h4> Ingredients: </h4>
       
+      <ul>
+      {cocktail.proportions ? 
+        <span>
+          {cocktail.proportions.map((proportion, i) =>
+          <li key={i}> {proportion.amount}  {proportion.ingredient_name}</li>
+        )}
+          </span>
+          : 
+          <p> No ingredients listed </p>
+        }
+
+      </ul>
+
       </div>
     }
   }
